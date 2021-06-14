@@ -4,14 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class SignInPage {
+public class SignInPage  {
 	private By signInLocator = By.xpath("//a[normalize-space()='Sign In']");
-	private By usernameLocator = By.name("username");
-	private By loginLocator=By.xpath("//button[@type='submit']");
-	private By passwordLocator = By.id("login-password");
-	private By errorLocator=By.id("customer-email-error");
-	private By passError=By.xpath("//div[@role='alert']");
-	
+	private By usernameLocator = By.id("email");
+	private By loginLocator=By.id("send2");
+	private By passwordLocator = By.id("password");
+	private By errorLocator=By.id("email-error");
+	private By passError=By.id("password-error");
+	private By createLocator=By.xpath("//span[contains(text(),'Create an Account')]");
 	
 
 	private WebDriver driver;
@@ -37,10 +37,14 @@ public class SignInPage {
 	//getErrorMessage()
 	public String getErrorMessage()
 	{
-		return driver.findElement(errorLocator).getText().trim();
+		return driver.findElement(errorLocator).getText();
 		
 	}
-	
+	public void create( )
+	{
+		driver.findElement(createLocator).click();
+		
+	}
 	
 	public void sendPassword(String password)
 	{
@@ -53,7 +57,7 @@ public class SignInPage {
 	//geterrorpassword()	
 		public String getErrorPassword()
 		{
-			return driver.findElement(passError).getText().trim();
+			return driver.findElement(passError).getText();
 		}
 		
 

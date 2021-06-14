@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.testng.annotations.DataProvider;
 
-import com.cyient.utility.ExcelUtils;
 
 public class DataProviderUtilities {
 	
@@ -13,13 +12,14 @@ public class DataProviderUtilities {
 	public Object[][] validCredentialExcel( ) throws IOException
 	{
 		
-		Object[][] main = ExcelUtils.getSheetIntoObjectArray("src/test/resources/testdata/Signora.xlsx\",\"ValidCredentialTest" );
+		Object[][] main = ExcelUtils.getSheetIntoObjectArray("src/test/resources/Signora.xlsx","ValidCredTest" );
 		return main;
 	}
    
 	@DataProvider
 	public Object[][] validPasswordExcel() throws IOException
 	{
-		Object[][] main = ExcelUtils.getSheetIntoObjectArray("src/test/resources/testdata/Signora.xlsx\",\"ValidCredentialTest");
+		Object[][] main = ExcelUtils.getSheetIntoObjectArray("src/test/resources/Signora.xlsx","ValidTest1");
 		return main;
+	}
 	}

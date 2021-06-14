@@ -10,7 +10,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class WebDriverwrapper {
-	
 	protected WebDriver driver;
 
 	@BeforeMethod
@@ -37,6 +36,5 @@ public class WebDriverwrapper {
 	@AfterMethod
 	public void teardown() {
 		driver.quit();
-	
 	}
 }
