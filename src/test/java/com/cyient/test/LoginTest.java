@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.cyient.base.WebDriverwrapper;
-
+import com.cyient.page.HomePage;
 import com.cyient.page.SignInPage;
 import com.cyient.utilities.DataProviderUtilities;
 
@@ -19,24 +19,26 @@ public class LoginTest extends WebDriverwrapper {
 			
 	@Test
 	public void navigationTest() throws InterruptedException{
-		Actions action = new Actions(driver);
-		action.moveToElement(driver.findElement(By.xpath("//span[contains(text(),'Product Range')]"))).perform();
+		HomePage hp=new HomePage(driver);
 		
-		driver.findElement(By.xpath("/html[1]/body[1]/div[2]/header[1]/div[1]/div[2]/div[1]/div[1]/div[2]/nav[1]/ul[1]/li[2]/div[2]/div[1]/ul[1]/li[1]/ul[1]/li[4]/a[1]/span[1]")).click();
-		driver.findElement(By.id("sorter")).click();
-		//Select selectSortby=new Select(driver.findElement(By.xpath(null)));
-		//selectSortby.selectByVisibleText("product");
+		
+		hp.product();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//img[@alt='Renew Vacuum Steel Bottle 500 ml.']")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[normalize-space()='Add to Cart']")).click();
+		hp.flasks();
+		Thread.sleep(2000);
+		hp.sortBy();
+		Thread.sleep(2000);
+		hp.bottle();
+		Thread.sleep(2000);
+		hp.addCart();
+		Thread.sleep(2000);
+		hp.view();
+		Thread.sleep(2000);
+		hp.checkout();
+		hp.next();
 		
-		driver.findElement(By.xpath("//a[normalize-space()='View Cart']")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[normalize-space()='Proceed to Checkout']")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();
-		
+		//System.out.println(actualvalue);
+		//Assert.assertEquals(actualvalue, expectedValue);
 		
 	}
 	
