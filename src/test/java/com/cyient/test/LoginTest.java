@@ -17,8 +17,12 @@ import com.cyient.utilities.DataProviderUtilities;
 public class LoginTest extends WebDriverwrapper {
 	
 			
-	@Test
-	public void navigationTest() throws InterruptedException{
+	@Test(dataProvider = "Sheet1" , dataProviderClass = DataProviderUtilities.class)
+	public void navigationTest(String expectedValue) throws InterruptedException{
+
+		
+		
+		
 		HomePage hp=new HomePage(driver);
 		
 		
@@ -36,9 +40,9 @@ public class LoginTest extends WebDriverwrapper {
 		Thread.sleep(2000);
 		hp.checkout();
 		hp.next();
+		String value=driver.findElement(By.id("customer-email-error")).getText();
 		
-		//System.out.println(actualvalue);
-		//Assert.assertEquals(actualvalue, expectedValue);
+		Assert.assertEquals(value, expectedValue);
 		
 	}
 	

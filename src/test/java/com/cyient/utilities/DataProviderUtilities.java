@@ -6,7 +6,13 @@ import org.testng.annotations.DataProvider;
 
 
 public class DataProviderUtilities {
-	
+	@DataProvider
+	public Object[][] Sheet1 () throws IOException
+	{
+		
+		Object[][] main = ExcelUtils.getSheetIntoObjectArray("src/test/resources/Signora.xlsx","Sheet1" );
+		return main;
+	}
 
 	@DataProvider
 	public Object[][] validCredentialExcel( ) throws IOException
